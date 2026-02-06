@@ -1,0 +1,22 @@
+{
+  "name": "@claude-flow-csp/verify",
+  "version": "0.1.0-alpha.1",
+  "type": "module",
+  "description": "CSP verification checks and truth scoring",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@claude-flow-csp/core": "0.1.0-alpha.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "vitest": "^4.0.16"
+  }
+}

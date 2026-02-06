@@ -21,7 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
     "paths": {
-      "@v3/*": ["./v3/*"]
+      "@v3/*": ["./v3/*"],
+      "@claude-flow-csp/*": ["./v3/@claude-flow-csp/*/src"]
     },
     "baseUrl": "."
   },

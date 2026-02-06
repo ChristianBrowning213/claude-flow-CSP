@@ -6,6 +6,7 @@
   "description": "Claude Flow V3 - Modular AI Agent Coordination System",
   "workspaces": [
     "@claude-flow/*",
+    "@claude-flow-csp/*",
     "claude-flow"
   ],
   "scripts": {
