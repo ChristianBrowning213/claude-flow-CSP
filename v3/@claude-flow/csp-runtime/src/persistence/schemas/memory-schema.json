@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RuntimeMemoryRecord",
+  "type": "object",
+  "required": [
+    "id",
+    "store_type",
+    "scope",
+    "schema_version",
+    "created_at",
+    "updated_at",
+    "provenance",
+    "payload"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "store_type": {
+      "type": "string",
+      "enum": ["ToolShape", "PlanMemory", "ConstraintMemory", "RunMemory", "EvidenceBundle"]
+    },
+    "scope": { "type": "object" },
+    "schema_version": { "type": "string" },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" },
+    "provenance": { "type": "object" },
+    "payload": {}
+  }
+}
