@@ -89,18 +89,6 @@ export * from './plugin-loader.js';
 export * from './plugin-registry.js';
 
 // =============================================================================
-// CSP Registries (Workflow/Agent/Verify Extension Points)
-// =============================================================================
-export {
-  registerWorkflows,
-  registerAgents,
-  registerVerifyPresets,
-  listWorkflows,
-  listAgents,
-  listVerifyPresets,
-} from './csp-registries.js';
-
-// =============================================================================
 // Core - DDD interfaces, config, orchestrator
 // Note: Only export non-overlapping items from core to avoid duplicates with types.js
 // =============================================================================

@@ -1,3 +1,2 @@
 packages:
   - "@claude-flow/*"
-  - "@claude-flow-csp/*"

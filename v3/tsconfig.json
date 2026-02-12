@@ -13,12 +13,7 @@
       "@claude-flow/testing": ["./@claude-flow/testing/src"],
       "@claude-flow/deployment": ["./@claude-flow/deployment/src"],
       "@claude-flow/shared": ["./@claude-flow/shared/src"],
-      "@claude-flow/hooks": ["./@claude-flow/hooks/src"],
-      "@claude-flow-csp/core": ["./@claude-flow-csp/core/src"],
-      "@claude-flow-csp/workflows": ["./@claude-flow-csp/workflows/src"],
-      "@claude-flow-csp/agents": ["./@claude-flow-csp/agents/src"],
-      "@claude-flow-csp/verify": ["./@claude-flow-csp/verify/src"],
-      "@claude-flow-csp/cli": ["./@claude-flow-csp/cli/src"]
+      "@claude-flow/hooks": ["./@claude-flow/hooks/src"]
     }
   },
   "references": [
@@ -32,12 +27,7 @@
     { "path": "./@claude-flow/neural" },
     { "path": "./@claude-flow/testing" },
     { "path": "./@claude-flow/deployment" },
-    { "path": "./@claude-flow/hooks" },
-    { "path": "./@claude-flow-csp/core" },
-    { "path": "./@claude-flow-csp/verify" },
-    { "path": "./@claude-flow-csp/workflows" },
-    { "path": "./@claude-flow-csp/agents" },
-    { "path": "./@claude-flow-csp/cli" }
+    { "path": "./@claude-flow/hooks" }
   ],
   "include": [],
   "exclude": ["node_modules", "dist"]
