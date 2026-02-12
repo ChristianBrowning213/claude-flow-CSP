@@ -1,0 +1,30 @@
+{
+  "name": "@claude-flow/csp-runtime",
+  "version": "3.0.0-alpha.1",
+  "type": "module",
+  "description": "CSP runtime subsystems for Claude Flow: workspace, memory, and research MCP-compatible tools",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js"
+  },
+  "files": [
+    "dist",
+    "docker",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^4.0.16"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "v3alpha"
+  }
+}

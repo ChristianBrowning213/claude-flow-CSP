@@ -1,0 +1,50 @@
+services:
+  workspace_runner:
+    build:
+      context: .
+      dockerfile: workspace_runner/Dockerfile
+    image: claude-flow-csp-workspace-runner
+    container_name: claude_flow_csp_workspace_runner
+    profiles: ["workspace"]
+    volumes:
+      - ${CSP_RUNTIME_WORKSPACE_DIR:-../../../../.claude-flow/runtime/workspace}:/workspace
+      - ${CSP_RUNTIME_ARTIFACT_DIR:-../../../../.claude-flow/runtime/workspace/artifacts}:/artifacts
+    working_dir: /workspace
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: ["python", "--version"]
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v3.3.2
+    container_name: claude_flow_csp_mlflow
+    profiles: ["mlflow"]
+    ports:
+      - "5001:5001"
+    volumes:
+      - ${CSP_RUNTIME_MLFLOW_DIR:-../../../../.claude-flow/runtime/mlflow}:/mlruns
+    command: mlflow server --host 0.0.0.0 --port 5001 --backend-store-uri file:///mlruns --default-artifact-root file:///mlruns
+
+  neo4j:
+    image: neo4j:5
+    container_name: claude_flow_csp_neo4j
+    profiles: ["neo4j"]
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=${CSP_RUNTIME_NEO4J_AUTH:-neo4j/claudeflow}
+    volumes:
+      - ${CSP_RUNTIME_NEO4J_DATA:-../../../../.claude-flow/runtime/neo4j}:/data
+
+  postgres:
+    image: postgres:16
+    container_name: claude_flow_csp_postgres
+    profiles: ["postgres"]
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${CSP_RUNTIME_POSTGRES_USER:-claudeflow}
+      - POSTGRES_PASSWORD=${CSP_RUNTIME_POSTGRES_PASSWORD:-claudeflow}
+      - POSTGRES_DB=${CSP_RUNTIME_POSTGRES_DB:-claudeflow_runtime}
+    volumes:
+      - ${CSP_RUNTIME_POSTGRES_DATA:-../../../../.claude-flow/runtime/postgres}:/var/lib/postgresql/data
