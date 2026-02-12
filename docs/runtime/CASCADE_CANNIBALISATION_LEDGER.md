@@ -198,6 +198,7 @@ Track every CASCADE_CSP subsystem pattern harvested into `claude-flow-CSP`, incl
 - Phase 3: `708bb931b` runtime: add research ingestion + retrieval
 - Phase 4: `856ec89dd` runtime: add runtime tool registry and CLI bridge
 - Phase 5: `4cac6b47e` docs: add operator manual + LLM playbook
+- Phase 6: `0ca6f16b8` docs: add cannibalisation ledger
 
 ## Per-phase `git show --stat`
 - `8a8aa6367`: 18 files changed, 773 insertions(+)
@@ -205,6 +206,7 @@ Track every CASCADE_CSP subsystem pattern harvested into `claude-flow-CSP`, incl
 - `708bb931b`: 15 files changed, 683 insertions(+)
 - `856ec89dd`: 15 files changed, 565 insertions(+)
 - `4cac6b47e`: 5 files changed, 194 insertions(+), 1 deletion(-)
+- `0ca6f16b8`: 1 file changed, 150 insertions(+), 28 deletions(-)
 
 ## Branch aggregate `git diff --stat main..HEAD`
-- 61 files changed, 2902 insertions(+)
+- 61 files changed, 3024 insertions(+)
