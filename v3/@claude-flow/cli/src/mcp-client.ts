@@ -35,6 +35,7 @@ import { githubTools } from './mcp-tools/github-tools.js';
 import { daaTools } from './mcp-tools/daa-tools.js';
 import { coordinationTools } from './mcp-tools/coordination-tools.js';
 import { browserTools } from './mcp-tools/browser-tools.js';
+import { runtimeTools } from './mcp-tools/runtime-tools.js';
 
 /**
  * MCP Tool Registry
@@ -75,6 +76,7 @@ registerTools([
   ...daaTools,
   ...coordinationTools,
   ...browserTools,
+  ...runtimeTools,
 ]);
 
 /**
