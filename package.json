@@ -40,7 +40,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "build:ts": "cd v3/@claude-flow/cli && npm run build || true",
+    "build:ts": "cd v3/@claude-flow/cli && npm run build",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:security": "vitest run v3/__tests__/security/",
@@ -127,5 +127,29 @@
   "publishConfig": {
     "access": "public",
     "tag": "v3alpha"
+  },
+  "dependencies": {
+    "@claude-flow/shared": "3.0.0-alpha.6",
+    "@claude-flow/guidance": "3.0.0-alpha.1",
+    "@claude-flow/mcp": "3.0.0-alpha.8",
+    "@claude-flow/swarm": "3.0.0-alpha.6",
+    "@claude-flow/embeddings": "3.0.0-alpha.12",
+    "@claude-flow/aidefence": "3.0.2",
+    "semver": "^7.6.0"
   }
+,
+"private": true,
+"workspaces": [
+  "v3/@claude-flow/cli",
+  "v3/@claude-flow/shared",
+  "v3/@claude-flow/guidance",
+  "v3/@claude-flow/mcp",
+  "v3/@claude-flow/swarm",
+  "v3/@claude-flow/embeddings",
+  "v3/@claude-flow/aidefence"
+]
+
+
 }
+
+

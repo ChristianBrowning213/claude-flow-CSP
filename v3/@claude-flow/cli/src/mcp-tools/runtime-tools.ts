@@ -58,7 +58,7 @@ async function invokeRuntimeTool(
 function createRuntimeTool(
   name: string,
   description: string,
-  required: string[] = []
+  required: readonly string[] = []
 ): MCPTool {
   return {
     name,
@@ -68,7 +68,7 @@ function createRuntimeTool(
     inputSchema: {
       type: 'object',
       properties: {},
-      required
+      required: [...required]
     },
     handler: async (input, context) => invokeRuntimeTool(name, input, context)
   };

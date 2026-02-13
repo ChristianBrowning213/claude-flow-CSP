@@ -82,7 +82,9 @@ export class NeuralEmbeddingService {
     if (this.initialized) return this.available;
 
     try {
-      const { getNeuralSubstrate } = await import('agentic-flow/embeddings');
+      const { getNeuralSubstrate } = (await import('agentic-flow/embeddings')) as unknown as {
+        getNeuralSubstrate: (config: NeuralSubstrateConfig) => Promise<any>;
+      };
       this.substrate = await getNeuralSubstrate(this.config);
       await this.substrate.init();
       this.available = true;
@@ -271,7 +273,17 @@ export async function listEmbeddingModels(): Promise<Array<{
   downloaded: boolean;
 }>> {
   try {
-    const { listAvailableModels } = await import('agentic-flow/embeddings');
+    const { listAvailableModels } = (await import('agentic-flow/embeddings')) as unknown as {
+      listAvailableModels: () => Promise<
+        Array<{
+          id: string;
+          dimension: number;
+          size: string;
+          quantized: boolean;
+          downloaded: boolean;
+        }>
+      >;
+    };
     return listAvailableModels();
   } catch {
     // Return default models if agentic-flow not available
@@ -290,6 +302,12 @@ export async function downloadEmbeddingModel(
   targetDir?: string,
   onProgress?: (progress: { percent: number; bytesDownloaded: number; totalBytes: number }) => void
 ): Promise<string> {
-  const { downloadModel } = await import('agentic-flow/embeddings');
+  const { downloadModel } = (await import('agentic-flow/embeddings')) as unknown as {
+    downloadModel: (
+      modelId: string,
+      targetDir: string,
+      onProgress?: (progress: { percent: number; bytesDownloaded: number; totalBytes: number }) => void
+    ) => Promise<string>;
+  };
   return downloadModel(modelId, targetDir ?? '.models', onProgress);
 }
